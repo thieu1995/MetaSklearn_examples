@@ -148,7 +148,7 @@ if __name__ == "__main__":
     
     dt_y = DataTransformer(scaling_methods=("minmax",))
     y_train_scaled = dt_y.fit_transform(y_train)
-    y_test_scaled = dt.transform(y_test)
+    y_test_scaled = dt_y.transform(y_test)
 
     data = (X_train_scaled, y_train_scaled, X_test_scaled, y_test_scaled)
     Path(f"{Config.PATH_SAVE}/{Config.DATA_03}").mkdir(parents=True, exist_ok=True)
