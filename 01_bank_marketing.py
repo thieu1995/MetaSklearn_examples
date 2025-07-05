@@ -48,7 +48,6 @@ def suggest_mlp_params(trial):
     }
 
 def run_trial(model_name, model_object, data, params, epoch, pop_size, path_save):
-    results = []
     param_grid, param_dist, param_space, param_func, param_bound = params
     res1 = run_grid_search(data, task_type="classification", model=model_object,
                            model_name=model_name, param_grid=param_grid, scoring='accuracy')
