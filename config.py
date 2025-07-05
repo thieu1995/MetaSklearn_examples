@@ -7,7 +7,7 @@
 class Config:
 
     DATA_01 = "bank_marketing"
-    DATA_02 = "rt_iot2022"
+    DATA_02 = "car_evaluation"
     DATA_03 = "superconductivty"
 
     SEED = 42

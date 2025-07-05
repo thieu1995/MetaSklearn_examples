@@ -36,6 +36,21 @@ python 01_bank_marketing.py
 
 # Large-scale dataset
 
+
+
+
+### 2. RT-IoT2022
++ samples: 8124
++ features: 22
++ feature type: Real, Categorical
++ task: Multi Classification (poisonous)
++ subject: Biology
++ dataset characteristics: Multivariate
++ link: https://archive.ics.uci.edu/dataset/73/mushroom
+
+
+
+
 ### 1. CDC Diabetes Health Indicators
 + samples: 253680
 + features: 21

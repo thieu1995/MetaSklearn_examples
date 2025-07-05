@@ -179,6 +179,18 @@ def get_california_housing():
 #     print(f"  Test target shape: {y_test.shape}\n")
 
 
+def get_car_evaluation():
+    df = pd.read_csv("data/car_evaluate.csv")
+    print(df.info())
+    X = df.drop("class", axis=1).values
+    y = df["class"].values
+    le = LabelEncoder()
+    y = le.fit_transform(y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=TEST_SIZE,
+                                                        random_state=RANDOM_STATE, shuffle=True, stratify=y)
+    return X_train, X_test, y_train, y_test
+
+
 def get_bank_marketing():
     df = pd.read_csv("data/bank_marketing.csv")
     print(df.info())
