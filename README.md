@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ## Run scripts to get results
 
 ```bash
-python 01_cdcd.py
+python 01_bank_marketing.py
 ```
 
 

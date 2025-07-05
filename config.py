@@ -6,9 +6,9 @@
 
 class Config:
 
-    DATA_01 = "cdc_diabetes_health"
-    DATA_02 = "rt_iot2022.csv"
-    DATA_03 = "superconductivty.csv"
+    DATA_01 = "bank_marketing"
+    DATA_02 = "rt_iot2022"
+    DATA_03 = "superconductivty"
 
     RESULT_LOSS = "df_loss.csv"
     RESULT_METRICS = "df_result.csv"
@@ -17,7 +17,7 @@ class Config:
     SEED = 42
 
     EPOCH = 100
-    POP_SIZE = 20
+    POP_SIZE = 10
     CV = 5
     N_WORKERS = 10
     VERBOSE = False
@@ -25,7 +25,7 @@ class Config:
     LIST_SEEDS = [10, 15, 21, 24, 27, 29, 30, 35, 40, 42]
     LIST_METRIC_CLS = ["AS", "PS", "RS", "F1S", "SS", "NPV"]
     LIST_METRIC_REG = ["MAE", "RMSE", "NNSE", "WI", "R", "KGE"]
-    PATH_SAVE = "history_latest"
+    PATH_SAVE = "history"
 
     PROBLEM_CLS = "classification"
     PROBLEM_REG = "regression"
