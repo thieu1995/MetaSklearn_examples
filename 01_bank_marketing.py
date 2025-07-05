@@ -7,6 +7,7 @@
 from scipy.stats import uniform, randint
 from pathlib import Path
 import pandas as pd
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
@@ -46,14 +47,35 @@ def suggest_mlp_params(trial):
         "learning_rate_init": trial.suggest_float("learning_rate_init", 0.001, 0.1, log=True)  # initial learning rate
     }
 
+def run_trial(model_name, model_object, data, params, epoch, pop_size, path_save):
+    results = []
+    param_grid, param_dist, param_space, param_func, param_bound = params
+    res1 = run_grid_search(data, task_type="classification", model=model_object,
+                           model_name=model_name, param_grid=param_grid, scoring='accuracy')
+    res2 = run_random_search(data, task_type="classification", model=model_object,
+                             model_name=model_name, param_dist=param_dist, scoring='accuracy')
+    res3 = run_bayes_search(data, task_type="classification", model=model_object, model_name=model_name,
+                            param_space=param_space, scoring='accuracy')
+    res4 = run_optuna(data, task_type="classification", model=model_object, model_name=model_name,
+                      param_func=param_func, scoring='AS', direction="maximize")
+    res5 = run_meta_sklearn(data, task_type="classification", model=model_object, model_name=model_name,
+                            param_bounds=param_bound, scoring='F1S', optim="RW_GWO",
+                            optim_params={"epoch": epoch, "pop_size": pop_size, "name": "RW-GWO"})
+    res6 = run_meta_sklearn(data, task_type="classification", model=model_object, model_name=model_name,
+                            param_bounds=param_bound, scoring='F1S', optim="OriginalINFO",
+                            optim_params={"epoch": epoch, "pop_size": pop_size, "name": "INFO"})
+    res7 = run_meta_sklearn(data, task_type="classification", model=model_object, model_name=model_name,
+                            param_bounds=param_bound, scoring='F1S', optim="OriginalSHADE",
+                            optim_params={"epoch": epoch, "pop_size": pop_size, "name": "SHADE"})
+    res8 = run_meta_sklearn(data, task_type="classification", model=model_object, model_name=model_name,
+                            param_bounds=param_bound, scoring='F1S', optim="OriginalARO",
+                            optim_params={"epoch": epoch, "pop_size": pop_size, "name": "ARO"})
+    print(f"Done with model: {model_name}.")
+    df_result = pd.DataFrame([res1, res2, res3, res4, res5, res6, res7, res8])
+    df_result.to_csv(path_save, index=False, header=True)
 
 if __name__ == "__main__":
-
-    models = {
-        "SVC": SVC(random_state=Config.SEED,),
-        "RF": RandomForestClassifier(random_state=Config.SEED),
-        "MLP": MLPClassifier(max_iter=1000, random_state=Config.SEED, early_stopping=True)
-    }
+    ## Configurations
     HIDDEN_SET = [(30, 10), (50, 20), (40, ), (30, )]
     ALPHA_SET = [0.001, 0.01, 0.1, 0.2]
     BATCH_SIZE_SET = [32, 64, 128]
@@ -179,31 +201,29 @@ if __name__ == "__main__":
     data = (X_train_scaled, y_train, X_test_scaled, y_test)
     Path(f"{Config.PATH_SAVE}/{Config.DATA_01}").mkdir(parents=True, exist_ok=True)
 
-    # Run hyperparameter tuning for each model
-    results = []
-    for idx, (model_name, model) in enumerate(models.items()):
-        res1 = run_grid_search(data, task_type="classification", model=model,
-                               model_name=model_name, param_grid=param_grids[model_name], scoring='accuracy')
-        res2 = run_random_search(data, task_type="classification", model=model,
-                                 model_name=model_name, param_dist=param_dists[model_name], scoring='accuracy')
-        res3 = run_bayes_search(data, task_type="classification", model=model, model_name=model_name,
-                                param_space=param_spaces[model_name], scoring='accuracy')
-        res4 = run_optuna(data, task_type="classification", model=model, model_name=model_name,
-                          param_func=param_funcs[model_name], scoring='AS', direction="maximize")
-        res5 = run_meta_sklearn(data, task_type="classification", model=model, model_name=model_name,
-                                param_bounds=param_bounds[model_name], scoring='F1S', optim="RW_GWO",
-                                optim_params={"epoch": Config.EPOCH, "pop_size": Config.POP_SIZE, "name": "RW-GWO"})
-        res6 = run_meta_sklearn(data, task_type="classification", model=model, model_name=model_name,
-                                param_bounds=param_bounds[model_name], scoring='F1S', optim="OriginalINFO",
-                                optim_params={"epoch": Config.EPOCH, "pop_size": Config.POP_SIZE, "name": "INFO"})
-        res7 = run_meta_sklearn(data, task_type="classification", model=model, model_name=model_name,
-                                param_bounds=param_bounds[model_name], scoring='F1S', optim="OriginalSHADE",
-                                optim_params={"epoch": Config.EPOCH, "pop_size": Config.POP_SIZE, "name": "SHADE"})
-        res8 = run_meta_sklearn(data, task_type="classification", model=model, model_name=model_name,
-                                param_bounds=param_bounds[model_name], scoring='F1S', optim="OriginalARO",
-                                optim_params={"epoch": Config.EPOCH, "pop_size": Config.POP_SIZE, "name": "ARO"})
-        results += [res1, res2, res3, res4, res5, res6, res7, res8]
-        print(f"Done with model: {model_name}.")
-    df_result = pd.DataFrame(results)  # Each row is a summary of metrics for a model/seed
-    df_result.to_csv(f"{Config.PATH_SAVE}/{Config.DATA_01}/{Config.RESULT_METRICS}", index=False, header=True)
+    LIST_MODELS = [
+        {"name": "SVC", "object": SVC(random_state=Config.SEED,)},
+        {"name": "RF", "object": RandomForestClassifier(random_state=Config.SEED)},
+        {"name": "MLP", "object": MLPClassifier(max_iter=1000, random_state=Config.SEED, early_stopping=True)},
+    ]
+
+    # Run trials in parallel for all models and seeds
+    all_epoch_losses = []
+    all_results = []
+
+    with ProcessPoolExecutor(max_workers=Config.N_WORKERS) as executor:
+        futures = []
+        for model_name, model_object in LIST_MODELS:
+            pathsave = f"{Config.PATH_SAVE}/{Config.DATA_01}/{model_name}_results.csv"
+            params = [param_grids[model_name], param_dists[model_name],
+                      param_spaces[model_name], param_funcs[model_name], param_bounds[model_name]]
+            futures.append(executor.submit(run_trial, model_name, model_object,
+                                           data, params, Config.EPOCH, Config.POP_SIZE, pathsave))
+
+        # Collect results as they complete
+        for future in as_completed(futures):
+            try:
+                future.result()
+            except Exception as e:
+                print(f"An exception occurred: {e}")
     print(f"Done with data: {Config.DATA_01}.")

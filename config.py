@@ -10,16 +10,12 @@ class Config:
     DATA_02 = "rt_iot2022"
     DATA_03 = "superconductivty"
 
-    RESULT_LOSS = "df_loss.csv"
-    RESULT_METRICS = "df_result.csv"
-    RESULTS_PARAMS = "df_best_params.csv"
-
     SEED = 42
 
     EPOCH = 100
     POP_SIZE = 10
     CV = 5
-    N_WORKERS = 10
+    N_WORKERS = 4
     VERBOSE = False
 
     LIST_SEEDS = [10, 15, 21, 24, 27, 29, 30, 35, 40, 42]
