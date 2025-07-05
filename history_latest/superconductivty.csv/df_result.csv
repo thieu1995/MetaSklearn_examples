@@ -1,0 +1,53 @@
+method,model,MAE,RMSE,NNSE,WI,R,KGE,run_time,best_params,best_estimator
+GridSearchCV,SVM,0.05722895244900636,0.07410020998771824,0.8596541895088061,0.9535329384898237,0.9149430977428512,0.8830529030041998,714.3989462459999,"{'C': 20.0, 'kernel': 'rbf'}",SVR(C=20.0)
+RandomizedSearchCV,SVM,0.05722304760514559,0.07408517469837878,0.8597031478003738,0.9535919623602789,0.9149838617241985,0.883944430664603,3667.6314627199995,"{'C': np.float64(20.475110376829182), 'kernel': 'rbf'}",SVR(C=np.float64(20.475110376829182))
+BayesSearchCV,SVM,0.057179034707837424,0.07414670002811613,0.8595027799009513,0.9533537268934908,0.9148357120582907,0.8805848836984822,2172.903178694999,"OrderedDict({'C': 17.502718999472844, 'kernel': 'rbf'})",SVR(C=17.502718999472844)
+Optuna,SVM,1214.7494936491466,1960.0864646854184,8.754125036024429e-09,0.0001452883099576363,0.27471456437742764,-1764.0319685391635,2829.413290886001,"{'C': 19.99672848215317, 'kernel': 'sigmoid'}",SVR(C=np.float64(19.90603219963028))
+RW-GWO,SVM,0.05723733272728216,0.07411081850772687,0.8596196431541392,0.9534976963753582,0.9149184089862523,0.8826379601053482,105673.646422022,"{'C': np.float64(19.60940682074796), 'kernel': 'rbf'}",SVR(C=np.float64(19.90603219963028))
+INFO,SVM,0.057233367334054736,0.0741072116945538,0.8596313888857212,0.9535172298323547,0.9149278452111079,0.8829498738080722,86873.880786723,"{'C': np.float64(19.708157570388412), 'kernel': 'rbf'}",SVR(C=np.float64(19.90603219963028))
+SHADE,SVM,0.057245257266443195,0.07411330492168126,0.8596115459015375,0.9535072928404744,0.9149090417575101,0.882801646648595,25944.263518425985,"{'C': np.float64(19.901440966356148), 'kernel': 'rbf'}",SVR(C=np.float64(19.90603219963028))
+ARO,SVM,0.057241098482109724,0.07411023166488415,0.8596215542484391,0.9535174704223561,0.9149178382139018,0.8829624410791612,50812.063206755,"{'C': np.float64(19.90603219963028), 'kernel': 'rbf'}",SVR(C=np.float64(19.90603219963028))
+GridSearchCV,RF,0.027623786548761763,0.04871258157746115,0.934096167067095,0.9812995817451038,0.9641309001278773,0.9385971030527493,5615.182533734012,"{'max_depth': None, 'min_samples_split': 3, 'n_estimators': 100}","RandomForestRegressor(min_samples_split=3, random_state=42)"
+RandomizedSearchCV,RF,0.02758691273418911,0.04865342237507803,0.9342456250478656,0.9813481984507786,0.9642198925582245,0.9386752881069401,6752.115018538025,"{'max_depth': None, 'min_samples_split': 3, 'n_estimators': 108}","RandomForestRegressor(min_samples_split=3, n_estimators=108, random_state=42)"
+BayesSearchCV,RF,0.04587097886629098,0.06792654178424269,0.8793621546795466,0.961015739754284,0.9293855286111194,0.8751295429395072,6545.6862680070335,"OrderedDict({'max_depth': 7, 'min_samples_split': 3, 'n_estimators': 77})","RandomForestRegressor(max_depth=7, min_samples_split=3, n_estimators=77,
+                      random_state=42)"
+Optuna,RF,0.061420424089010335,0.08779059826154689,0.8135658318021087,0.9305344582746365,0.8783853697279697,0.8070079171581822,1907.8449598739971,"{'n_estimators': 64, 'max_depth': 4, 'min_samples_split': 3}","RandomForestRegressor(max_depth=np.int64(8), min_samples_split=np.int64(2),
+                      n_estimators=np.int64(105), random_state=42)"
+RW-GWO,RF,0.04180829274812722,0.06316563022381565,0.8939497785409832,0.9667927719543709,0.9392665900061976,0.8899523420496168,219131.124539776,"{'n_estimators': np.int64(105), 'max_depth': np.int64(8), 'min_samples_split': np.int64(2)}","RandomForestRegressor(max_depth=np.int64(8), min_samples_split=np.int64(2),
+                      n_estimators=np.int64(105), random_state=42)"
+INFO,RF,0.04184338568723169,0.06323949546222012,0.8937279793000357,0.9667132613353931,0.9391153770176881,0.889617832615432,196512.96604265005,"{'n_estimators': np.int64(105), 'max_depth': np.int64(8), 'min_samples_split': np.int64(7)}","RandomForestRegressor(max_depth=np.int64(8), min_samples_split=np.int64(2),
+                      n_estimators=np.int64(105), random_state=42)"
+SHADE,RF,0.04180829274812722,0.06316563022381565,0.8939497785409832,0.9667927719543709,0.9392665900061976,0.8899523420496168,193608.8398304711,"{'n_estimators': np.int64(105), 'max_depth': np.int64(8), 'min_samples_split': np.int64(2)}","RandomForestRegressor(max_depth=np.int64(8), min_samples_split=np.int64(2),
+                      n_estimators=np.int64(105), random_state=42)"
+ARO,RF,0.04180829274812722,0.06316563022381565,0.8939497785409832,0.9667927719543709,0.9392665900061976,0.8899523420496168,191099.092884553,"{'n_estimators': np.int64(105), 'max_depth': np.int64(8), 'min_samples_split': np.int64(2)}","RandomForestRegressor(max_depth=np.int64(8), min_samples_split=np.int64(2),
+                      n_estimators=np.int64(105), random_state=42)"
+GridSearchCV,MLP,0.04692628664644281,0.06965708262191053,0.8739218184311867,0.9602652901889431,0.9250865275096096,0.8982024535238149,20131.24373513111,"{'activation': 'relu', 'alpha': 0.1, 'batch_size': 32, 'hidden_layer_sizes': 50, 'learning_rate': 'constant', 'solver': 'lbfgs'}","MLPRegressor(alpha=0.1, batch_size=32, early_stopping=True,
+             hidden_layer_sizes=50, max_iter=1000, random_state=42,
+             solver='lbfgs')"
+RandomizedSearchCV,MLP,0.04556736608742775,0.06785367791278137,0.8795896819403334,0.9625401780000717,0.9290701248018824,0.9047809085583945,8711.994919784833,"{'activation': 'relu', 'alpha': np.float64(0.13540522705903987), 'batch_size': 128, 'hidden_layer_sizes': 50, 'learning_rate': 'adaptive', 'solver': 'lbfgs'}","MLPRegressor(alpha=np.float64(0.13540522705903987), batch_size=128,
+             early_stopping=True, hidden_layer_sizes=50,
+             learning_rate='adaptive', max_iter=1000, random_state=42,
+             solver='lbfgs')"
+BayesSearchCV,MLP,0.046368090730498,0.06867900308624648,0.8770051567182658,0.9613173768537908,0.9272354574638624,0.8986689350135768,10663.912862737896,"OrderedDict({'activation': 'relu', 'alpha': 0.2, 'batch_size': 32, 'hidden_layer_sizes': 50, 'learning_rate': 'constant', 'solver': 'lbfgs'})","MLPRegressor(alpha=0.2, batch_size=32, early_stopping=True,
+             hidden_layer_sizes=50, max_iter=1000, random_state=42,
+             solver='lbfgs')"
+Optuna,MLP,0.08709810196125166,0.10918387324883218,0.738307593961224,0.8802767049905352,0.8140259464615195,0.6122537704587088,1208.511523449095,"{'hidden_layer_sizes': 30, 'activation': 'tanh', 'solver': 'adam', 'learning_rate': 'adaptive', 'alpha': 0.1990392653280605, 'batch_size': 32}","MLPRegressor(alpha=np.float64(0.13865002498173779), batch_size=32,
+             early_stopping=True, hidden_layer_sizes=50,
+             learning_rate='adaptive', max_iter=1000, random_state=42,
+             solver='lbfgs')"
+RW-GWO,MLP,0.050287609297460206,0.07315531422874201,0.8627224141452134,0.9554031812940545,0.9169989295967073,0.8851731041777471,228828.86021983018,"{'hidden_layer_sizes': 40, 'activation': 'relu', 'solver': 'lbfgs', 'learning_rate': 'adaptive', 'alpha': np.float64(0.17321949203280193), 'batch_size': 32}","MLPRegressor(alpha=np.float64(0.13865002498173779), batch_size=32,
+             early_stopping=True, hidden_layer_sizes=50,
+             learning_rate='adaptive', max_iter=1000, random_state=42,
+             solver='lbfgs')"
+INFO,MLP,0.04708472243314548,0.0693182682133547,0.8749923840615775,0.9604547323882964,0.9258157441772394,0.8963975545412481,224438.83075531689,"{'hidden_layer_sizes': 50, 'activation': 'relu', 'solver': 'lbfgs', 'learning_rate': 'constant', 'alpha': np.float64(0.17214502544178828), 'batch_size': 32}","MLPRegressor(alpha=np.float64(0.13865002498173779), batch_size=32,
+             early_stopping=True, hidden_layer_sizes=50,
+             learning_rate='adaptive', max_iter=1000, random_state=42,
+             solver='lbfgs')"
+SHADE,MLP,0.04580734538354136,0.06770991732013959,0.8800382221535894,0.9624656862589962,0.9293487574000793,0.9015081397117234,419606.7335396379,"{'hidden_layer_sizes': 50, 'activation': 'relu', 'solver': 'lbfgs', 'learning_rate': 'adaptive', 'alpha': np.float64(0.1411049774273967), 'batch_size': 32}","MLPRegressor(alpha=np.float64(0.13865002498173779), batch_size=32,
+             early_stopping=True, hidden_layer_sizes=50,
+             learning_rate='adaptive', max_iter=1000, random_state=42,
+             solver='lbfgs')"
+ARO,MLP,0.04612046337365774,0.06791097091734899,0.8794107874335596,0.9622796790623225,0.9289214849152703,0.9036528466208482,392546.485688803,"{'hidden_layer_sizes': 50, 'activation': 'relu', 'solver': 'lbfgs', 'learning_rate': 'adaptive', 'alpha': np.float64(0.13865002498173779), 'batch_size': 32}","MLPRegressor(alpha=np.float64(0.13865002498173779), batch_size=32,
+             early_stopping=True, hidden_layer_sizes=50,
+             learning_rate='adaptive', max_iter=1000, random_state=42,
+             solver='lbfgs')"
