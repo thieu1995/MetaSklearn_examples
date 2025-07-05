@@ -212,11 +212,11 @@ if __name__ == "__main__":
 
     with ProcessPoolExecutor(max_workers=Config.N_WORKERS) as executor:
         futures = []
-        for model_name, model_object in LIST_MODELS:
-            pathsave = f"{Config.PATH_SAVE}/{Config.DATA_01}/{model_name}_results.csv"
-            params = [param_grids[model_name], param_dists[model_name],
-                      param_spaces[model_name], param_funcs[model_name], param_bounds[model_name]]
-            futures.append(executor.submit(run_trial, model_name, model_object,
+        for model in LIST_MODELS:
+            pathsave = f"{Config.PATH_SAVE}/{Config.DATA_01}/{model['name']}_results.csv"
+            params = [param_grids[model["name"]], param_dists[model['name']],
+                      param_spaces[model['name']], param_funcs[model['name']], param_bounds[model['name']]]
+            futures.append(executor.submit(run_trial, model['name'], model['object'],
                                            data, params, Config.EPOCH, Config.POP_SIZE, pathsave))
 
         # Collect results as they complete
