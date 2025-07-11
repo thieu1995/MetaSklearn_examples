@@ -1,0 +1,27 @@
+method,model,AS,PS,RS,F1S,SS,NPV,run_time,best_params,best_estimator
+GridSearchCV,RF,1.0,1.0,1.0,1.0,1.0,1.0,4658.777167792,"{'criterion': 'gini', 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 70}","RandomForestClassifier(min_samples_leaf=2, min_samples_split=5, n_estimators=70,
+                       random_state=42)"
+RandomizedSearchCV,RF,1.0,1.0,1.0,1.0,1.0,1.0,216.67339086299944,"{'criterion': 'gini', 'max_depth': 7, 'max_features': 0.15, 'min_samples_leaf': 4, 'min_samples_split': 7, 'n_estimators': 121}","RandomForestClassifier(max_depth=7, max_features=0.15, min_samples_leaf=4,
+                       min_samples_split=7, n_estimators=121, random_state=42)"
+BayesSearchCV,RF,1.0,1.0,1.0,1.0,1.0,1.0,1643.408528580001,"OrderedDict({'criterion': 'gini', 'max_depth': 7, 'max_features': 0.25, 'min_samples_leaf': 3, 'min_samples_split': 8, 'n_estimators': 91})","RandomForestClassifier(max_depth=7, max_features=0.25, min_samples_leaf=3,
+                       min_samples_split=8, n_estimators=91, random_state=42)"
+Optuna,RF,1.0,1.0,1.0,1.0,1.0,1.0,80.95821236700067,"{'n_estimators': 102, 'criterion': 'gini', 'max_depth': 6, 'min_samples_split': 8, 'min_samples_leaf': 5, 'max_features': 3}","RandomForestClassifier(criterion='entropy', max_features=0.15,
+                       min_samples_leaf=np.int64(2),
+                       min_samples_split=np.int64(2), n_estimators=np.int64(69),
+                       random_state=42)"
+RW-GWO,RF,1.0,1.0,1.0,1.0,1.0,1.0,1680.9566674019989,"{'n_estimators': np.int64(50), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(5), 'min_samples_leaf': np.int64(5), 'max_features': 3}","RandomForestClassifier(criterion='entropy', max_features=0.15,
+                       min_samples_leaf=np.int64(2),
+                       min_samples_split=np.int64(2), n_estimators=np.int64(69),
+                       random_state=42)"
+INFO,RF,1.0,1.0,1.0,1.0,1.0,1.0,2425.058040247999,"{'n_estimators': np.int64(150), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(5), 'min_samples_leaf': np.int64(5), 'max_features': 'log2'}","RandomForestClassifier(criterion='entropy', max_features=0.15,
+                       min_samples_leaf=np.int64(2),
+                       min_samples_split=np.int64(2), n_estimators=np.int64(69),
+                       random_state=42)"
+SHADE,RF,1.0,1.0,1.0,1.0,1.0,1.0,1446.4970828029982,"{'n_estimators': np.int64(50), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(2), 'min_samples_leaf': np.int64(1), 'max_features': 0.15}","RandomForestClassifier(criterion='entropy', max_features=0.15,
+                       min_samples_leaf=np.int64(2),
+                       min_samples_split=np.int64(2), n_estimators=np.int64(69),
+                       random_state=42)"
+ARO,RF,1.0,1.0,1.0,1.0,1.0,1.0,2470.9796398920007,"{'n_estimators': np.int64(69), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(2), 'min_samples_leaf': np.int64(2), 'max_features': 0.15}","RandomForestClassifier(criterion='entropy', max_features=0.15,
+                       min_samples_leaf=np.int64(2),
+                       min_samples_split=np.int64(2), n_estimators=np.int64(69),
+                       random_state=42)"
