@@ -1,0 +1,38 @@
+method,model,AS,PS,RS,F1S,SS,NPV,run_time,best_params,best_estimator
+GridSearchCV,MLP,0.9986565158978952,0.9986766229670676,0.9986292885009853,0.9986527537700873,0.9986292885009853,0.9986766229670676,58258.099428450994,"{'activation': 'identity', 'alpha': 0.01, 'batch_size': 32, 'hidden_layer_sizes': (30, 10), 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'solver': 'lbfgs'}","MLPClassifier(activation='identity', alpha=0.01, batch_size=32,
+              early_stopping=True, hidden_layer_sizes=(30, 10), max_iter=1000,
+              random_state=42, solver='lbfgs')"
+RandomizedSearchCV,MLP,0.9991043439319302,0.9991503823279524,0.999054820415879,0.9991017930350949,0.999054820415879,0.9991503823279524,1915.9380834860058,"{'activation': 'identity', 'alpha': np.float64(0.0949889027981886), 'batch_size': 64, 'hidden_layer_sizes': (30, 10), 'learning_rate': 'invscaling', 'learning_rate_init': np.float64(0.03801587002554444), 'solver': 'lbfgs'}","MLPClassifier(activation='identity', alpha=np.float64(0.0949889027981886),
+              batch_size=64, early_stopping=True, hidden_layer_sizes=(30, 10),
+              learning_rate='invscaling',
+              learning_rate_init=np.float64(0.03801587002554444), max_iter=1000,
+              random_state=42, solver='lbfgs')"
+BayesSearchCV,MLP,1.0,1.0,1.0,1.0,1.0,1.0,1479.7588731319993,"OrderedDict({'activation': 'identity', 'alpha': 0.030794009012538082, 'batch_size': 32, 'hidden_layer_sizes': 40, 'learning_rate': 'invscaling', 'learning_rate_init': 0.001, 'solver': 'lbfgs'})","MLPClassifier(activation='identity', alpha=0.030794009012538082, batch_size=32,
+              early_stopping=True, hidden_layer_sizes=40,
+              learning_rate='invscaling', max_iter=1000, random_state=42,
+              solver='lbfgs')"
+Optuna,MLP,1.0,1.0,1.0,1.0,1.0,1.0,470.5101877190027,"{'hidden_layer_sizes': (40,), 'activation': 'identity', 'solver': 'lbfgs', 'alpha': 0.02768775666220038, 'batch_size': 64, 'learning_rate': 'adaptive', 'learning_rate_init': 0.006121322745465948}","MLPClassifier(activation='identity', alpha=np.float64(0.0011115189807713933),
+              batch_size=32, early_stopping=True, hidden_layer_sizes=(30,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.0013296068690786345),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+RW-GWO,MLP,0.9991043439319302,0.9991503823279524,0.999054820415879,0.9991017930350949,0.999054820415879,0.9991503823279524,11559.410715385995,"{'hidden_layer_sizes': (30, 10), 'activation': 'identity', 'solver': 'lbfgs', 'alpha': np.float64(0.006272711552676152), 'batch_size': 32, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.01047471255631352)}","MLPClassifier(activation='identity', alpha=np.float64(0.0011115189807713933),
+              batch_size=32, early_stopping=True, hidden_layer_sizes=(30,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.0013296068690786345),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+INFO,MLP,0.9991043439319302,0.9991018782930459,0.9991018782930459,0.9991018782930459,0.9991018782930459,0.9991018782930459,5740.648116558994,"{'hidden_layer_sizes': (30,), 'activation': 'identity', 'solver': 'lbfgs', 'alpha': np.float64(0.0010085625479903763), 'batch_size': 128, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.0014229655176268576)}","MLPClassifier(activation='identity', alpha=np.float64(0.0011115189807713933),
+              batch_size=32, early_stopping=True, hidden_layer_sizes=(30,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.0013296068690786345),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+SHADE,MLP,1.0,1.0,1.0,1.0,1.0,1.0,12207.238734858998,"{'hidden_layer_sizes': (40,), 'activation': 'identity', 'solver': 'lbfgs', 'alpha': np.float64(0.02271742353627687), 'batch_size': 32, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.0010000615960330768)}","MLPClassifier(activation='identity', alpha=np.float64(0.0011115189807713933),
+              batch_size=32, early_stopping=True, hidden_layer_sizes=(30,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.0013296068690786345),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+ARO,MLP,0.9991043439319302,0.9991018782930459,0.9991018782930459,0.9991018782930459,0.9991018782930459,0.9991018782930459,10016.754617373997,"{'hidden_layer_sizes': (30,), 'activation': 'identity', 'solver': 'lbfgs', 'alpha': np.float64(0.0011115189807713933), 'batch_size': 32, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.0013296068690786345)}","MLPClassifier(activation='identity', alpha=np.float64(0.0011115189807713933),
+              batch_size=32, early_stopping=True, hidden_layer_sizes=(30,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.0013296068690786345),
+              max_iter=1000, random_state=42, solver='lbfgs')"
