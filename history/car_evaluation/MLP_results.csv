@@ -1,0 +1,38 @@
+method,model,AS,PS,RS,F1S,SS,NPV,run_time,best_params,best_estimator
+GridSearchCV,MLP,1.0,1.0,1.0,1.0,1.0,1.0,5897.038746192004,"{'activation': 'logistic', 'alpha': 0.001, 'batch_size': 8, 'hidden_layer_sizes': (25,), 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'solver': 'lbfgs'}","MLPClassifier(activation='logistic', alpha=0.001, batch_size=8,
+              early_stopping=True, hidden_layer_sizes=(25,), max_iter=1000,
+              random_state=42, solver='lbfgs')"
+RandomizedSearchCV,MLP,1.0,1.0,1.0,1.0,1.0,1.0,108.85560704104137,"{'activation': 'tanh', 'alpha': np.float64(0.04093475643167195), 'batch_size': 32, 'hidden_layer_sizes': (15,), 'learning_rate': 'constant', 'learning_rate_init': np.float64(0.0056450412719997725), 'solver': 'lbfgs'}","MLPClassifier(activation='tanh', alpha=np.float64(0.04093475643167195),
+              batch_size=32, early_stopping=True, hidden_layer_sizes=(15,),
+              learning_rate_init=np.float64(0.0056450412719997725),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+BayesSearchCV,MLP,1.0,1.0,1.0,1.0,1.0,1.0,507.9731116750045,"OrderedDict({'activation': 'logistic', 'alpha': 0.0019955258191031496, 'batch_size': 8, 'hidden_layer_sizes': 50, 'learning_rate': 'invscaling', 'learning_rate_init': 0.004667500795561301, 'solver': 'lbfgs'})","MLPClassifier(activation='logistic', alpha=0.0019955258191031496, batch_size=8,
+              early_stopping=True, hidden_layer_sizes=50,
+              learning_rate='invscaling',
+              learning_rate_init=0.004667500795561301, max_iter=1000,
+              random_state=42, solver='lbfgs')"
+Optuna,MLP,1.0,1.0,1.0,1.0,1.0,1.0,49.40037979895715,"{'hidden_layer_sizes': (25,), 'activation': 'tanh', 'solver': 'lbfgs', 'alpha': 0.004595404869695763, 'batch_size': 16, 'learning_rate': 'adaptive', 'learning_rate_init': 0.017267304977364763}","MLPClassifier(activation='tanh', alpha=np.float64(0.09973052206276951),
+              batch_size=8, early_stopping=True, hidden_layer_sizes=(20,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.030376529765923272),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+RW-GWO,MLP,1.0,1.0,1.0,1.0,1.0,1.0,1279.7859647650039,"{'hidden_layer_sizes': (20,), 'activation': 'logistic', 'solver': 'lbfgs', 'alpha': np.float64(0.013222789474460183), 'batch_size': 8, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.0016815235903728416)}","MLPClassifier(activation='tanh', alpha=np.float64(0.09973052206276951),
+              batch_size=8, early_stopping=True, hidden_layer_sizes=(20,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.030376529765923272),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+INFO,MLP,1.0,1.0,1.0,1.0,1.0,1.0,949.6505522150546,"{'hidden_layer_sizes': (25,), 'activation': 'logistic', 'solver': 'lbfgs', 'alpha': np.float64(0.023381919093715474), 'batch_size': 16, 'learning_rate': 'constant', 'learning_rate_init': np.float64(0.0036985387846246013)}","MLPClassifier(activation='tanh', alpha=np.float64(0.09973052206276951),
+              batch_size=8, early_stopping=True, hidden_layer_sizes=(20,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.030376529765923272),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+SHADE,MLP,1.0,1.0,1.0,1.0,1.0,1.0,2328.2903565999586,"{'hidden_layer_sizes': (20,), 'activation': 'tanh', 'solver': 'lbfgs', 'alpha': np.float64(0.008981709303673896), 'batch_size': 8, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.1)}","MLPClassifier(activation='tanh', alpha=np.float64(0.09973052206276951),
+              batch_size=8, early_stopping=True, hidden_layer_sizes=(20,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.030376529765923272),
+              max_iter=1000, random_state=42, solver='lbfgs')"
+ARO,MLP,1.0,1.0,1.0,1.0,1.0,1.0,1997.028996787034,"{'hidden_layer_sizes': (20,), 'activation': 'tanh', 'solver': 'lbfgs', 'alpha': np.float64(0.09973052206276951), 'batch_size': 8, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.030376529765923272)}","MLPClassifier(activation='tanh', alpha=np.float64(0.09973052206276951),
+              batch_size=8, early_stopping=True, hidden_layer_sizes=(20,),
+              learning_rate='adaptive',
+              learning_rate_init=np.float64(0.030376529765923272),
+              max_iter=1000, random_state=42, solver='lbfgs')"

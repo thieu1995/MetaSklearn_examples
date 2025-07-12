@@ -1,0 +1,28 @@
+method,model,AS,PS,RS,F1S,SS,NPV,run_time,best_params,best_estimator
+GridSearchCV,RF,0.9884393063583815,0.946957671957672,0.9873081463990555,0.9663237479236595,0.9929200290226179,0.9844768439108061,841.4475525199668,"{'criterion': 'entropy', 'max_depth': None, 'max_features': 4, 'min_samples_leaf': 1, 'min_samples_split': 3, 'n_estimators': 40}","RandomForestClassifier(criterion='entropy', max_features=4, min_samples_split=3,
+                       n_estimators=40, random_state=42)"
+RandomizedSearchCV,RF,0.9898843930635839,0.9638501742160279,0.9905548996458087,0.976596376118757,0.9936730410708106,0.9854166666666666,32.47510681906715,"{'criterion': 'entropy', 'max_depth': None, 'max_features': 4, 'min_samples_leaf': 1, 'min_samples_split': 3, 'n_estimators': 27}","RandomForestClassifier(criterion='entropy', max_features=4, min_samples_split=3,
+                       n_estimators=27, random_state=42)"
+BayesSearchCV,RF,0.9609826589595376,0.6405940594059406,0.7183725365543547,0.6742219169137851,0.9754429150339932,0.9632670370890031,1624.8381922249682,"OrderedDict({'criterion': 'entropy', 'max_depth': 6, 'max_features': 3, 'min_samples_leaf': 2, 'min_samples_split': 3, 'n_estimators': 54})","RandomForestClassifier(criterion='entropy', max_depth=6, max_features=3,
+                       min_samples_leaf=2, min_samples_split=3, n_estimators=54,
+                       random_state=42)"
+Optuna,RF,0.9638728323699421,0.8944444444444444,0.7372627372627374,0.7105550941306756,0.9773016510934727,0.9659113796576032,6.87932707904838,"{'n_estimators': 30, 'criterion': 'entropy', 'max_depth': 6, 'min_samples_split': 5, 'min_samples_leaf': 1, 'max_features': 3}","RandomForestClassifier(criterion='entropy', max_features=3,
+                       min_samples_leaf=np.int64(1),
+                       min_samples_split=np.int64(3), n_estimators=np.int64(22),
+                       random_state=42)"
+RW-GWO,RF,0.9855491329479769,0.9556722689075631,0.9524339297066571,0.9530419952746997,0.9908826756841492,0.9817748647858993,226.1701884570066,"{'n_estimators': np.int64(36), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(3), 'min_samples_leaf': np.int64(1), 'max_features': 3}","RandomForestClassifier(criterion='entropy', max_features=3,
+                       min_samples_leaf=np.int64(1),
+                       min_samples_split=np.int64(3), n_estimators=np.int64(22),
+                       random_state=42)"
+INFO,RF,0.976878612716763,0.9067519723136122,0.9090000908182726,0.906629746661839,0.9841892239395822,0.9729426012611853,110.53452068800107,"{'n_estimators': np.int64(22), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(3), 'min_samples_leaf': np.int64(1), 'max_features': 3}","RandomForestClassifier(criterion='entropy', max_features=3,
+                       min_samples_leaf=np.int64(1),
+                       min_samples_split=np.int64(3), n_estimators=np.int64(22),
+                       random_state=42)"
+SHADE,RF,0.9855491329479769,0.9556722689075631,0.9524339297066571,0.9530419952746997,0.9908826756841492,0.9817748647858993,171.58921633497812,"{'n_estimators': np.int64(36), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(3), 'min_samples_leaf': np.int64(1), 'max_features': 3}","RandomForestClassifier(criterion='entropy', max_features=3,
+                       min_samples_leaf=np.int64(1),
+                       min_samples_split=np.int64(3), n_estimators=np.int64(22),
+                       random_state=42)"
+ARO,RF,0.976878612716763,0.9067519723136122,0.9090000908182726,0.906629746661839,0.9841892239395822,0.9729426012611853,123.68916558101773,"{'n_estimators': np.int64(22), 'criterion': 'entropy', 'max_depth': None, 'min_samples_split': np.int64(3), 'min_samples_leaf': np.int64(1), 'max_features': 3}","RandomForestClassifier(criterion='entropy', max_features=3,
+                       min_samples_leaf=np.int64(1),
+                       min_samples_split=np.int64(3), n_estimators=np.int64(22),
+                       random_state=42)"
