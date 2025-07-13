@@ -29,7 +29,7 @@ def suggest_svc_params(trial):
 def suggest_rf_params(trial):
     return {
         "n_estimators": trial.suggest_int("n_estimators", 60, 100),
-        "criterion": trial.suggest_categorical("criterion", ['gini', 'entropy']),
+        "criterion": trial.suggest_categorical("criterion", ["squared_error", "absolute_error"]),
         "max_depth": trial.suggest_int("max_depth", 4, 7),  # exclude None to avoid dtype issue
         "min_samples_split": trial.suggest_int("min_samples_split", 3, 7),
         "min_samples_leaf": trial.suggest_int("min_samples_leaf", 2, 4),
@@ -89,7 +89,7 @@ if __name__ == "__main__":
         },
         "RF": {
             "n_estimators": [60, 70, 80, 90, 100],
-            "criterion": ['gini', 'entropy'],
+            "criterion": ["squared_error", "absolute_error"],
             "max_depth": [None, 4, 5, 6, 7],
             "min_samples_split": [3, 5, 7],
             "min_samples_leaf": [2, 3, 4],
@@ -115,7 +115,7 @@ if __name__ == "__main__":
         },
         "RF": {
             "n_estimators": randint(60, 100),
-            "criterion": ['gini', 'entropy'],
+            "criterion": ["squared_error", "absolute_error"],
             "max_depth": [None, 4, 5, 6, 7],
             "min_samples_split": randint(3, 7),
             "min_samples_leaf": randint(2, 4),
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         },
         "RF": {
             "n_estimators": skace.Integer(60, 100),
-            "criterion": skace.Categorical(['gini', 'entropy']),
+            "criterion": skace.Categorical(["squared_error", "absolute_error"]),
             "max_depth": skace.Integer(4, 7),  # exclude None to avoid type mismatch in skopt
             "min_samples_split": skace.Integer(3, 7),
             "min_samples_leaf": skace.Integer(2, 4),  # minimum leaf size
@@ -167,7 +167,7 @@ if __name__ == "__main__":
         ],
         "RF": [
             IntegerVar(lb=60, ub=100, name="n_estimators"),
-            StringVar(valid_sets=('gini', 'entropy'), name="criterion"),
+            StringVar(valid_sets=("squared_error", "absolute_error"), name="criterion"),
             CategoricalVar(valid_sets=(None, 4, 5, 6, 7), name="max_depth"),
             IntegerVar(lb=3, ub=7, name="min_samples_split"),
             IntegerVar(lb=2, ub=4, name="min_samples_leaf"),
