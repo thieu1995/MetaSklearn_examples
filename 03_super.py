@@ -28,19 +28,23 @@ def suggest_svc_params(trial):
 
 def suggest_rf_params(trial):
     return {
-        "n_estimators": trial.suggest_int("n_estimators", 50, 120),
-        "max_depth": trial.suggest_int("max_depth", 4, 8),  # exclude None to avoid dtype issue
-        "min_samples_split": trial.suggest_int("min_samples_split", 2, 7)
+        "n_estimators": trial.suggest_int("n_estimators", 60, 100),
+        "criterion": trial.suggest_categorical("criterion", ['gini', 'entropy']),
+        "max_depth": trial.suggest_int("max_depth", 4, 7),  # exclude None to avoid dtype issue
+        "min_samples_split": trial.suggest_int("min_samples_split", 3, 7),
+        "min_samples_leaf": trial.suggest_int("min_samples_leaf", 2, 4),
+        "max_features": trial.suggest_categorical("max_features", ['sqrt', 'log2', 4, 5, 0.15, 0.25])
     }
 
 def suggest_mlp_params(trial):
     return {
-        "hidden_layer_sizes": trial.suggest_categorical("hidden_layer_sizes", [50, 40, 30]),
-        "activation": trial.suggest_categorical("activation", ["relu", "tanh"]),
+        "hidden_layer_sizes": trial.suggest_categorical("hidden_layer_sizes", [(70, 30), (50, 20), (60, ), (50, )]),
+        "activation": trial.suggest_categorical("activation", ["relu", "tanh", "logistic", "identity"]),
         "solver": trial.suggest_categorical("solver", ['lbfgs', 'adam']),
-        "learning_rate": trial.suggest_categorical("learning_rate", ['constant', 'adaptive']),
         "alpha": trial.suggest_float("alpha", 1e-3, 0.2, log=True),
-        "batch_size": trial.suggest_categorical("batch_size", [32, 64, 128])
+        "batch_size": trial.suggest_categorical("batch_size", [32, 64, 128]),
+        "learning_rate": trial.suggest_categorical("learning_rate", ['constant', 'invscaling', 'adaptive']),
+        "learning_rate_init": trial.suggest_float("learning_rate_init", 0.001, 0.1, log=True)  # initial learning rate
     }
 
 def run_trial(model_name, model_object, data, params, epoch, pop_size, path_save):
@@ -72,9 +76,9 @@ def run_trial(model_name, model_object, data, params, epoch, pop_size, path_save
 
 if __name__ == "__main__":
 
-    HIDDEN_SET = [(60, 20), (50, 10), (50, ), (40, )]
+    HIDDEN_SET = [(70, 30), (50, 20), (60, ), (50, )]
     ALPHA_SET = [0.001, 0.01, 0.1]
-    BATCH_SIZE_SET = [64, 128, 256]
+    BATCH_SIZE_SET = [32, 64, 128]
 
     param_grids = {
         "SVC": {
@@ -89,7 +93,7 @@ if __name__ == "__main__":
             "max_depth": [None, 4, 5, 6, 7],
             "min_samples_split": [3, 5, 7],
             "min_samples_leaf": [2, 3, 4],
-            "max_features": ['sqrt', 'log2', 5, 6, 0.15, 0.25]
+            "max_features": ['sqrt', 'log2', 4, 5, 0.15, 0.25]
         },
         "MLP": {
             "hidden_layer_sizes": HIDDEN_SET,
@@ -115,7 +119,7 @@ if __name__ == "__main__":
             "max_depth": [None, 4, 5, 6, 7],
             "min_samples_split": randint(3, 7),
             "min_samples_leaf": randint(2, 4),
-            "max_features": ['sqrt', 'log2', 5, 6, 0.15, 0.25]
+            "max_features": ['sqrt', 'log2', 4, 5, 0.15, 0.25]
         },
         "MLP": {
             "hidden_layer_sizes": HIDDEN_SET,
@@ -141,7 +145,7 @@ if __name__ == "__main__":
             "max_depth": skace.Integer(4, 7),  # exclude None to avoid type mismatch in skopt
             "min_samples_split": skace.Integer(3, 7),
             "min_samples_leaf": skace.Integer(2, 4),  # minimum leaf size
-            "max_features": skace.Categorical(['sqrt', 'log2', 5, 6, 0.15, 0.25])  # categorical features
+            "max_features": skace.Categorical(['sqrt', 'log2', 4, 5, 0.15, 0.25])  # categorical features
         },
         "MLP": {
             "hidden_layer_sizes": skace.Categorical([60, 50, 40]),  # HIDDEN_SET
@@ -167,7 +171,7 @@ if __name__ == "__main__":
             CategoricalVar(valid_sets=(None, 4, 5, 6, 7), name="max_depth"),
             IntegerVar(lb=3, ub=7, name="min_samples_split"),
             IntegerVar(lb=2, ub=4, name="min_samples_leaf"),
-            CategoricalVar(valid_sets=('sqrt', 'log2', 5, 6, 0.15, 0.25), name="max_features")
+            CategoricalVar(valid_sets=('sqrt', 'log2', 4, 5, 0.15, 0.25), name="max_features")
         ],
         "MLP": [
             SequenceVar(valid_sets=(HIDDEN_SET), name="hidden_layer_sizes"),
