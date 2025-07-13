@@ -75,7 +75,7 @@ def run_trial(model_name, model_object, data, params, epoch, pop_size, path_save
 
 
 if __name__ == "__main__":
-
+    ## Configurations
     HIDDEN_SET = [(70, 30), (50, 20), (60, ), (50, )]
     ALPHA_SET = [0.001, 0.01, 0.1]
     BATCH_SIZE_SET = [32, 64, 128]
@@ -185,7 +185,7 @@ if __name__ == "__main__":
     }
 
     param_funcs = {
-        "SVM": suggest_svc_params,
+        "SVC": suggest_svc_params,
         "RF": suggest_rf_params,
         "MLP": suggest_mlp_params
     }
