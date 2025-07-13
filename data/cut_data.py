@@ -41,4 +41,4 @@ plt.ylabel('Frequency')
 plt.tight_layout()
 plt.show()
 
-df_sampled.to_csv('superconductivity.csv', index=False)
+df_sampled.to_csv('superconductivty.csv', index=False)
