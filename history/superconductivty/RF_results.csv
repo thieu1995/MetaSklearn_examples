@@ -1,0 +1,23 @@
+method,model,MAE,RMSE,NNSE,WI,R,KGE,run_time,best_params,best_estimator
+GridSearchCV,RF,0.04909775331144176,0.08515621195828084,0.8966763858736039,0.9684222113865324,0.9407287795682582,0.9013558198929696,171967.099119831,"{'criterion': 'squared_error', 'max_depth': None, 'max_features': 0.15, 'min_samples_leaf': 2, 'min_samples_split': 3, 'n_estimators': 90}","RandomForestRegressor(max_features=0.15, min_samples_leaf=2,
+                      min_samples_split=3, n_estimators=90, random_state=42)"
+RandomizedSearchCV,RF,0.049459230304501604,0.08569467614207772,0.8955025488360188,0.9680176712930091,0.9399671856230685,0.89933328520218,6156.73821740807,"{'criterion': 'squared_error', 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'min_samples_split': 4, 'n_estimators': 98}","RandomForestRegressor(max_features='sqrt', min_samples_leaf=2,
+                      min_samples_split=4, n_estimators=98, random_state=42)"
+BayesSearchCV,RF,0.065327894858909,0.10470114738716053,0.8516477687698176,0.951799171383356,0.9093900555088948,0.8658233419822032,9365.754231362022,"OrderedDict({'criterion': 'absolute_error', 'max_depth': 7, 'max_features': 0.25, 'min_samples_leaf': 2, 'min_samples_split': 3, 'n_estimators': 100})","RandomForestRegressor(criterion='absolute_error', max_depth=7,
+                      max_features=0.25, min_samples_leaf=2,
+                      min_samples_split=3, random_state=42)"
+Optuna,RF,0.06499699070601991,0.10446955927191076,0.8522064359286099,0.9519528471106194,0.909732781933363,0.8656599290698996,12400.92661939899,"{'n_estimators': 99, 'criterion': 'absolute_error', 'max_depth': 7, 'min_samples_split': 5, 'min_samples_leaf': 3, 'max_features': 0.25}","RandomForestRegressor(max_features=0.15, min_samples_leaf=np.int64(2),
+                      min_samples_split=np.int64(3), n_estimators=np.int64(99),
+                      random_state=42)"
+RW-GWO,RF,0.04935128869117822,0.08540724128705525,0.8961296869357273,0.9682883307665171,0.940366384656162,0.9013877848476693,152808.02731251006,"{'n_estimators': np.int64(72), 'criterion': 'squared_error', 'max_depth': None, 'min_samples_split': np.int64(5), 'min_samples_leaf': np.int64(2), 'max_features': 0.25}","RandomForestRegressor(max_features=0.15, min_samples_leaf=np.int64(2),
+                      min_samples_split=np.int64(3), n_estimators=np.int64(99),
+                      random_state=42)"
+INFO,RF,0.04915534992876763,0.08508809243565071,0.8968245757746949,0.968502694403957,0.9408225100201786,0.9019372972305926,121634.79601023113,"{'n_estimators': np.int64(100), 'criterion': 'squared_error', 'max_depth': None, 'min_samples_split': np.int64(5), 'min_samples_leaf': np.int64(2), 'max_features': 0.25}","RandomForestRegressor(max_features=0.15, min_samples_leaf=np.int64(2),
+                      min_samples_split=np.int64(3), n_estimators=np.int64(99),
+                      random_state=42)"
+SHADE,RF,0.049429107073153185,0.08563806229374374,0.8956261685748447,0.9680654563387416,0.9400540865267556,0.8991680219910951,22763.144575836137,"{'n_estimators': np.int64(92), 'criterion': 'squared_error', 'max_depth': None, 'min_samples_split': np.int64(3), 'min_samples_leaf': np.int64(2), 'max_features': 'sqrt'}","RandomForestRegressor(max_features=0.15, min_samples_leaf=np.int64(2),
+                      min_samples_split=np.int64(3), n_estimators=np.int64(99),
+                      random_state=42)"
+ARO,RF,0.049014877180402615,0.08511422944796722,0.8967677245165243,0.968454105885427,0.9407847168736067,0.9017617175671458,45954.78468125709,"{'n_estimators': np.int64(99), 'criterion': 'squared_error', 'max_depth': None, 'min_samples_split': np.int64(3), 'min_samples_leaf': np.int64(2), 'max_features': 0.15}","RandomForestRegressor(max_features=0.15, min_samples_leaf=np.int64(2),
+                      min_samples_split=np.int64(3), n_estimators=np.int64(99),
+                      random_state=42)"

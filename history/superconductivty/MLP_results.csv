@@ -1,0 +1,33 @@
+method,model,MAE,RMSE,NNSE,WI,R,KGE,run_time,best_params,best_estimator
+GridSearchCV,MLP,0.05976756382546601,0.09247333358221767,0.8803725832889103,0.9635483308230282,0.930077272388475,0.9089247136645654,205208.10574210295,"{'activation': 'relu', 'alpha': 0.1, 'batch_size': 32, 'hidden_layer_sizes': (70, 30), 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'solver': 'lbfgs'}","MLPRegressor(alpha=0.1, batch_size=32, early_stopping=True,
+             hidden_layer_sizes=(70, 30), max_iter=1000, random_state=42,
+             solver='lbfgs')"
+RandomizedSearchCV,MLP,0.05909969706169924,0.09266907166805391,0.8799264903718719,0.9628008976527003,0.9293811136326149,0.9031570851258888,7864.952432111953,"{'activation': 'relu', 'alpha': np.float64(0.1372078854193818), 'batch_size': 64, 'hidden_layer_sizes': (70, 30), 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.04877148908802277), 'solver': 'lbfgs'}","MLPRegressor(alpha=np.float64(0.1372078854193818), batch_size=64,
+             early_stopping=True, hidden_layer_sizes=(70, 30),
+             learning_rate='adaptive',
+             learning_rate_init=np.float64(0.04877148908802277), max_iter=1000,
+             random_state=42, solver='lbfgs')"
+BayesSearchCV,MLP,0.06413020930777251,0.09853925208267307,0.8663302355622086,0.9574214508694772,0.9197542237544873,0.887961121340556,10810.261890033958,"OrderedDict({'activation': 'relu', 'alpha': 0.1816477900839759, 'batch_size': 64, 'hidden_layer_sizes': 50, 'learning_rate': 'adaptive', 'learning_rate_init': 0.013296850188203369, 'solver': 'lbfgs'})","MLPRegressor(alpha=0.1816477900839759, batch_size=64, early_stopping=True,
+             hidden_layer_sizes=50, learning_rate='adaptive',
+             learning_rate_init=0.013296850188203369, max_iter=1000,
+             random_state=42, solver='lbfgs')"
+Optuna,MLP,0.06011374122468821,0.09236564065404854,0.8806178089399309,0.9632445984612975,0.9299498374727384,0.9048173670278334,7227.751170055009,"{'hidden_layer_sizes': (70, 30), 'activation': 'relu', 'solver': 'lbfgs', 'alpha': 0.0031777303744594393, 'batch_size': 128, 'learning_rate': 'invscaling', 'learning_rate_init': 0.024282442947022247}","MLPRegressor(alpha=np.float64(0.2), batch_size=32, early_stopping=True,
+             hidden_layer_sizes=(70, 30),
+             learning_rate_init=np.float64(0.08780255620273521), max_iter=1000,
+             random_state=42, solver='lbfgs')"
+RW-GWO,MLP,0.06123776809389514,0.09692369208324512,0.8701127248535857,0.959555582310793,0.9227458933126292,0.9025764910445114,111454.2376811629,"{'hidden_layer_sizes': (70, 30), 'activation': 'relu', 'solver': 'lbfgs', 'alpha': np.float64(0.15171397953975332), 'batch_size': 32, 'learning_rate': 'adaptive', 'learning_rate_init': np.float64(0.07877303687827421)}","MLPRegressor(alpha=np.float64(0.2), batch_size=32, early_stopping=True,
+             hidden_layer_sizes=(70, 30),
+             learning_rate_init=np.float64(0.08780255620273521), max_iter=1000,
+             random_state=42, solver='lbfgs')"
+INFO,MLP,0.0613039987502564,0.0963718098407478,0.8713979861442528,0.959933860251659,0.9236309971004822,0.8978843658540512,117392.40785667021,"{'hidden_layer_sizes': (70, 30), 'activation': 'relu', 'solver': 'lbfgs', 'alpha': np.float64(0.18703099934373477), 'batch_size': 32, 'learning_rate': 'constant', 'learning_rate_init': np.float64(0.09368268576553991)}","MLPRegressor(alpha=np.float64(0.2), batch_size=32, early_stopping=True,
+             hidden_layer_sizes=(70, 30),
+             learning_rate_init=np.float64(0.08780255620273521), max_iter=1000,
+             random_state=42, solver='lbfgs')"
+SHADE,MLP,0.06226649057862922,0.09807523550155124,0.867419649509336,0.958507717246818,0.920861726542095,0.8983930051110236,242990.5219656562,"{'hidden_layer_sizes': (70, 30), 'activation': 'relu', 'solver': 'lbfgs', 'alpha': np.float64(0.12546724047850838), 'batch_size': 32, 'learning_rate': 'constant', 'learning_rate_init': np.float64(0.011336143248080566)}","MLPRegressor(alpha=np.float64(0.2), batch_size=32, early_stopping=True,
+             hidden_layer_sizes=(70, 30),
+             learning_rate_init=np.float64(0.08780255620273521), max_iter=1000,
+             random_state=42, solver='lbfgs')"
+ARO,MLP,0.06233280987558848,0.0983151163202471,0.8668567596119394,0.958068458703571,0.9203302098709942,0.8922656601844693,197314.51241471898,"{'hidden_layer_sizes': (70, 30), 'activation': 'relu', 'solver': 'lbfgs', 'alpha': np.float64(0.2), 'batch_size': 32, 'learning_rate': 'constant', 'learning_rate_init': np.float64(0.08780255620273521)}","MLPRegressor(alpha=np.float64(0.2), batch_size=32, early_stopping=True,
+             hidden_layer_sizes=(70, 30),
+             learning_rate_init=np.float64(0.08780255620273521), max_iter=1000,
+             random_state=42, solver='lbfgs')"
